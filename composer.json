@@ -1,0 +1,16 @@
+{
+    "name": "jam/mvcobjet",
+    "type": "project",
+    "autoload": {
+	"psr-4": {
+ 	   "mvcobjet\\": "src"
+ 	}
+    },
+    "authors": [
+        {
+            "name": "jam openlab",
+            "email": "jb.cavarec@orange.fr"
+        }
+    ],
+    "require": {}
+}
