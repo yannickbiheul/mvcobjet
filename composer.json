@@ -12,5 +12,7 @@
             "email": "jb.cavarec@orange.fr"
         }
     ],
-    "require": {}
+    "require": {
+        "klein/klein": "^2.1"
+    }
 }
