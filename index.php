@@ -10,10 +10,10 @@ use mvcobjet\controllers\FrontController;
 // ici c'est comme si on disait :
 // use MvcObjet\Controllers\FrontController as FrontController
 
-/*
+
 $fc = new FrontController(); 
-$fc->index();
-*/
+
+
 
 
 // pour klein redirection .htaccess
@@ -40,6 +40,10 @@ $klein->respond('GET','/toto', function() {
 
 $klein->respond('GET','/jam', function() {
     return 'Hello jami !!!!';
+});
+
+$klein->respond('GET','/fc', function() use($fc) {
+    $fc->index();
 });
 
 $klein->dispatch(); 
