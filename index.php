@@ -27,6 +27,7 @@ $base  = dirname($_SERVER['PHP_SELF']);
 // dirname = /afpa/mvcobjet 
 // REQUEST_URI = /afpa/mvcobjet/jami
 //  apres trim REQUEST_URI => afpa/mvcobjet (utilisé par dispatch de klein)
+
 if(ltrim($base, '/')){ 
     $_SERVER['REQUEST_URI'] = substr($_SERVER['REQUEST_URI'], strlen($base));
 }
@@ -43,6 +44,7 @@ $klein->respond('GET','/jam', function() {
 });
 
 $klein->respond('GET','/fc', function() use($fc) {
+    // use est une manière d'effectuer une closure en PHP 
     $fc->index();
 });
 
