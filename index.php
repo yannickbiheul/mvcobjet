@@ -40,12 +40,12 @@ $klein->respond('GET','/toto', function() {
 });
 
 $klein->respond('GET','/jam', function() {
-    return 'Hello jami !!!!';
+    return 'Hello jam !!!!';
 });
 
-$klein->respond('GET','/fc', function() use($fc) {
+$klein->respond('GET','/genres', function() use($fc) {
     // use est une manière d'effectuer une closure en PHP 
-    $fc->index();
+    $fc->genres();
 });
 
 $klein->dispatch(); 
