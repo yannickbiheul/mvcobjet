@@ -23,12 +23,12 @@ class FrontController
         $this->genreService = new GenreService();
     }
 
-    public function genres(){
-       /* 
-       sur la version précédente j'utilisais DAO directement , ici on passe par les services
-       $genreDao = new GenreDao();
-        $genres = $genreDao->findAll();
-        */
+    public function genres() {
+        /* 
+         sur la version précédente j'utilisais DAO directement , ici on passe par les services
+         $genreDao = new GenreDao();
+         $genres = $genreDao->findAll();
+       */
         $genres = $this->genreService->getAllGenres();
         foreach($genres as $genre) {
             echo $genre->getName();
