@@ -3,6 +3,11 @@
 require_once "vendor/autoload.php";
 
 use mvcobjet\controllers\FrontController; 
+// use Twig\Environment;
+// use Twig\Loader\FilesystemLoader;
+
+//$loader = new FilesystemLoader(__DIR__ . '/src/views');
+//$twig = new Environment($loader, ['cache' => false]);
 
 // voir les espaces de noms
 // https://openclassrooms.com/fr/courses/1217456-les-espaces-de-noms-en-php
@@ -10,11 +15,8 @@ use mvcobjet\controllers\FrontController;
 // ici c'est comme si on disait :
 // use MvcObjet\Controllers\FrontController as FrontController
 
-
-$fc = new FrontController(); 
-
-
-
+// $fc = new FrontController($twig);
+$fc = new FrontController();
 
 // pour klein redirection .htaccess
 /*-------------------------------------
@@ -32,12 +34,7 @@ if(ltrim($base, '/')){
     $_SERVER['REQUEST_URI'] = substr($_SERVER['REQUEST_URI'], strlen($base));
 }
 
-
 $klein = new \Klein\Klein();
-
-$klein->respond('GET','/toto', function() {
-    return 'Hello toto !!!!';
-});
 
 $klein->respond('GET','/jam', function() {
     return 'Hello jam !!!!';
@@ -45,7 +42,7 @@ $klein->respond('GET','/jam', function() {
 
 $klein->respond('GET','/genres', function() use($fc) {
     // use est une manière d'effectuer une closure en PHP 
-    $fc->genres();
+   $fc->genres(); //appel de la fonction genres du controleur
 });
 
 $klein->dispatch(); 

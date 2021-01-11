@@ -53,9 +53,7 @@
 {% endblock %}
 
 {% block content %}
-
-  <small>
-    {{ movie.genre.name }} 
-  </small>
-
+   {% for genre in genres %}
+    {{ genre.name }} 
+   {% endfor %}
 {% endblock %}
