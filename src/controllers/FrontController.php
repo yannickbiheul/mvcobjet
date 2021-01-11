@@ -22,8 +22,8 @@ class FrontController
 {
     private $genreService ;
   //  private $twig;
-
-    public function __construct($twig){
+  // public function __construct($twig){
+    public function __construct(){
         // instanciation du service Genre
         $this->genreService = new GenreService();
        // $this->twig = $twig;
