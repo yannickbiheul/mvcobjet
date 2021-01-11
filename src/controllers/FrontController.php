@@ -15,18 +15,17 @@ use mvcobjet\Models\Entities\Genre;
 */
 
 use mvcobjet\Models\Services\GenreService; 
-/* use Twig\Environment; */
+use Twig\Environment;
 
 
 class FrontController
 {
     private $genreService ;
-  //  private $twig;
-  // public function __construct($twig){
-    public function __construct(){
+    private $twig;
+   public function __construct($twig){
         // instanciation du service Genre
         $this->genreService = new GenreService();
-       // $this->twig = $twig;
+        $this->twig = $twig;
     }
 
     public function genres() {
@@ -51,8 +50,15 @@ class FrontController
             ici on lance le template php de base
             Perso: php était déja un moteur de template mais les framework s'évertuenet à utiliser d'autres templates
         */
-        include_once __DIR__.'/../views/genre.php';
-       // echo $this->twig->render('genre.html.twig', [ "genres" => $genres ] );
+        // include_once __DIR__.'/../views/genre.php';
+        /* Dans ce views/genre.php :
+        foreach ($genres as $genre) { ?>
+            <li><?= $genre->getName() ?></li>
+        <?php } ?>
+        */
+
+       echo $this->twig->render('genre.html.twig', [ "genres" => $genres ] );
+
 
     }
 }

@@ -3,11 +3,12 @@
 require_once "vendor/autoload.php";
 
 use mvcobjet\controllers\FrontController; 
-// use Twig\Environment;
-// use Twig\Loader\FilesystemLoader;
 
-//$loader = new FilesystemLoader(__DIR__ . '/src/views');
-//$twig = new Environment($loader, ['cache' => false]);
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
+
+$loader = new FilesystemLoader(__DIR__ . '/src/views');
+$twig = new Environment($loader, ['cache' => false]);
 
 // voir les espaces de noms
 // https://openclassrooms.com/fr/courses/1217456-les-espaces-de-noms-en-php
@@ -15,8 +16,7 @@ use mvcobjet\controllers\FrontController;
 // ici c'est comme si on disait :
 // use MvcObjet\Controllers\FrontController as FrontController
 
-// $fc = new FrontController($twig);
-$fc = new FrontController();
+$fc = new FrontController($twig);
 
 // pour klein redirection .htaccess
 /*-------------------------------------
