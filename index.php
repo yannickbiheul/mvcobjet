@@ -8,7 +8,7 @@ use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
 $loader = new FilesystemLoader(__DIR__ . '/src/views');
-$twig = new Environment($loader, ['cache' => false]);
+$twig = new Environment($loader, ['cache' => false,'debug' => true]);
 
 // voir les espaces de noms
 // https://openclassrooms.com/fr/courses/1217456-les-espaces-de-noms-en-php
@@ -36,17 +36,39 @@ if(ltrim($base, '/')){
 
 $klein = new \Klein\Klein();
 
-$klein->respond('GET','/jam', function() {
-    return 'Hello jam !!!!';
-});
-
 $klein->respond('GET','/genres', function() use($fc) {
     // use est une manière d'effectuer une closure en PHP 
    $fc->genres(); //appel de la fonction genres du controleur
 });
 
+$klein->respond('GET','/acteurs', function() use($fc) {
+    // use est une manière d'effectuer une closure en PHP 
+   $fc->acteurs(); //appel de la fonction genres du controleur
+});
+
+$klein->respond('GET','/realisateurs', function() use($fc) {
+    // use est une manière d'effectuer une closure en PHP 
+   $fc->realisateurs(); //appel de la fonction genres du controleur
+});
+
+$klein->respond('GET','/movie/', function() use($fc) {
+    // use est une manière d'effectuer une closure en PHP 
+   $fc->movie/(); //appel de la fonction genres du controleur
+});
+
+/*
+$klein->respond('GET', '/acteurs/[:id]', function ($request) use ($fc) {
+    $frontController->getOneActeur($request->id);
+});
+*/
+
+/*
+$klein->respond('POST','/addMovie', function() use($bc) {
+    // use est une manière d'effectuer une closure en PHP 
+   $fc->acteurs(); //appel de la fonction genres du controleur
+});
+*/
+
 $klein->dispatch(); 
 
-// autre route / avec fonction() use ($fc) {
-//    $fc->index() 
-// }
+?>

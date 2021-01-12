@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Directeur{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+ {% for real in reals %}
+    {{ real.firstname }} &nbsp;
+     {{ real.lastname }} <br/>
+   {% endfor %}
+{% endblock %}

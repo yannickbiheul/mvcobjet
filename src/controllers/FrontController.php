@@ -15,16 +15,23 @@ use mvcobjet\Models\Entities\Genre;
 */
 
 use mvcobjet\Models\Services\GenreService; 
-use Twig\Environment;
+use mvcobjet\Models\Services\ActorService; 
+use mvcobjet\Models\Services\DirectorService; 
 
+use Twig\Environment;
 
 class FrontController
 {
     private $genreService ;
+    private $actorService ;
+    private $directorService ;
     private $twig;
-   public function __construct($twig){
+    
+    public function __construct($twig){
         // instanciation du service Genre
         $this->genreService = new GenreService();
+        $this->actorService = new ActorService();
+        $this->directorService = new directorService();
         $this->twig = $twig;
     }
 
@@ -32,19 +39,10 @@ class FrontController
         /* 
          sur la version précédente j'utilisais DAO directement , ici on passe par les services
              avant :$genreDao = new GenreDao();
-             */
-           // $genres = $genreDao->findAll();
-       
-       $genres = $this->genreService->getAllGenres();
-       
-        /*
-            on affichait les genres directement dans le controleur
-            ici on lance le template...
-            foreach($genres as $genre) {
-                echo $genre->getName();
-            }
         */
+        // $genres = $genreDao->findAll();
        
+       $genres = $this->genreService->getAllGenres();    
         /*
             on affichait les genres directement dans le controleur
             ici on lance le template php de base
@@ -56,9 +54,27 @@ class FrontController
             <li><?= $genre->getName() ?></li>
         <?php } ?>
         */
+       echo $this->twig->render('genres.html.twig', [ "genres" => $genres ] );
+    }
 
-       echo $this->twig->render('genre.html.twig', [ "genres" => $genres ] );
+    public function acteurs()
+    {
+       $acteurs = $this->actorService->getAllActors();
+       echo $this->twig->render('actor.html.twig', ["acteurs" => $acteurs]);   
+    }
+
+    public function realisateurs()
+    {
+       $reals = $this->directorService->getAlldirecteurs();
+       echo $this->twig->render('directors.html.twig', ["reals" => $reals]);   
+    }
 
 
+    // idem avec directeurs...
+
+    // récupérer 1 genre par son id
+    public function genre($id) {
+        $genre = $this->genreService->getById($id);
+        echo $this->twig->render('genreseul.html.twig', ["genre" => $genre]);   
     }
 }

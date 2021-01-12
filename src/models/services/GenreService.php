@@ -2,11 +2,8 @@
 
 namespace mvcobjet\Models\Services;
 
-
 use mvcobjet\Models\Daos\GenreDao;
 use mvcobjet\Models\Entities\Genre;
-
-
 
 class GenreService
 {
@@ -23,4 +20,8 @@ class GenreService
         return $genres;
     }
 
+    public function getById($id) {
+        $genre = $this->genreDao->findById($id);
+        return $genre ;
+    }
 }
