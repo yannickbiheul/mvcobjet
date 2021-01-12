@@ -51,11 +51,6 @@ $klein->respond('GET','/realisateurs', function() use($fc) {
    $fc->realisateurs(); //appel de la fonction genres du controleur
 });
 
-$klein->respond('GET','/movie/', function() use($fc) {
-    // use est une manière d'effectuer une closure en PHP 
-   $fc->movie/(); //appel de la fonction genres du controleur
-});
-
 /*
 $klein->respond('GET', '/acteurs/[:id]', function ($request) use ($fc) {
     $frontController->getOneActeur($request->id);
