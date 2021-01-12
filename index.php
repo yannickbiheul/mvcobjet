@@ -42,14 +42,18 @@ $klein->respond('GET','/genres', function() use($fc) {
 });
 
 $klein->respond('GET','/acteurs', function() use($fc) {
-    // use est une manière d'effectuer une closure en PHP 
-   $fc->acteurs(); //appel de la fonction genres du controleur
+   $fc->acteurs(); 
 });
 
 $klein->respond('GET','/realisateurs', function() use($fc) {
-    // use est une manière d'effectuer une closure en PHP 
-   $fc->realisateurs(); //appel de la fonction genres du controleur
+   $fc->realisateurs(); 
 });
+
+$klein->respond('GET','/movie/[:id]', function($request) use($fc) {
+   $fc->movie($request->id); 
+});
+
+
 
 /*
 $klein->respond('GET', '/acteurs/[:id]', function ($request) use ($fc) {
