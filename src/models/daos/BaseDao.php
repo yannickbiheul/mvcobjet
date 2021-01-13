@@ -1,6 +1,6 @@
 <?php
 
-namespace mvcobjet\Models\Daos;
+namespace mvcobjet\models\Daos;
 
 use PDO;
 

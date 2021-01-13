@@ -1,6 +1,7 @@
 {
     "name": "jam/mvcobjet",
     "type": "project",
+    "description": "projet mvcObjet",
     "autoload": {
 	"psr-4": {
  	   "mvcobjet\\": "src"

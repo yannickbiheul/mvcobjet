@@ -6,6 +6,7 @@ use mvcobjet\Models\Daos\ActorDao;
 use mvcobjet\Models\Daos\DirectorDao;
 use mvcobjet\Models\Daos\GenreDao;
 use mvcobjet\Models\Daos\MovieDao;
+
 use mvcobjet\Models\Entities\Actor;
 use mvcobjet\Models\Entities\Director;
 use mvcobjet\Models\Entities\Genre;
