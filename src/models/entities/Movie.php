@@ -4,8 +4,7 @@ namespace mvcobjet\Models\Entities;
 
 use DateTime;
 
-class Movie
-{
+class Movie {
 
     private $id;
     private $title;
@@ -20,8 +19,7 @@ class Movie
     /**
      * @return int
      */
-    public function getId(): int
-    {
+    public function getId(): int {
         return $this->id;
     }
 
@@ -29,8 +27,7 @@ class Movie
      * @param int $id
      * @return Movie
      */
-    public function setId($id): Movie
-    {
+    public function setId($id): Movie {
         $this->id = $id;
         return $this;
     }
@@ -38,8 +35,7 @@ class Movie
     /**
      * @return string
      */
-    public function getTitle(): string
-    {
+    public function getTitle(): string {
         return $this->title;
     }
 
@@ -47,8 +43,7 @@ class Movie
      * @param string $title
      * @return Movie
      */
-    public function setTitle(string $title): Movie
-    {
+    public function setTitle(string $title): Movie {
         $this->title = $title;
         return $this;
     }
@@ -56,8 +51,7 @@ class Movie
     /**
      * @return string
      */
-    public function getDescription(): string
-    {
+    public function getDescription(): string {
         return $this->description;
     }
 
@@ -65,8 +59,7 @@ class Movie
      * @param string $description
      * @return Movie
      */
-    public function setDescription(string $description): Movie
-    {
+    public function setDescription(string $description): Movie {
         $this->description = $description;
         return $this;
     }
@@ -74,8 +67,7 @@ class Movie
     /**
      * @return string
      */
-    public function getDuration(): string
-    {
+    public function getDuration(): string {
         return $this->duration;
     }
 
@@ -83,8 +75,7 @@ class Movie
      * @param string $duration
      * @return Movie
      */
-    public function setDuration(string $duration): Movie
-    {
+    public function setDuration(string $duration): Movie {
         $this->duration = $duration;
         return $this;
     }
@@ -92,8 +83,7 @@ class Movie
     /**
      * @return DateTime
      */
-    public function getDate(): \DateTime
-    {
+    public function getDate(): \DateTime {
         return $this->date;
     }
 
@@ -101,8 +91,7 @@ class Movie
      * @param DateTime $date
      * @return Movie
      */
-    public function setDate(DateTime $date): Movie
-    {
+    public function setDate(DateTime $date): Movie {
         $this->date = $date;
         return $this;
     }
@@ -110,8 +99,7 @@ class Movie
     /**
      * @return string
      */
-    public function getCoverImage(): string
-    {
+    public function getCoverImage(): string {
         return $this->coverImage;
     }
 
@@ -119,8 +107,7 @@ class Movie
      * @param string $coverImage
      * @return Movie
      */
-    public function setCoverImage(string $coverImage): Movie
-    {
+    public function setCoverImage(string $coverImage): Movie {
         $this->coverImage = $coverImage;
         return $this;
     }

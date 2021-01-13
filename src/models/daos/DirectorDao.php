@@ -4,10 +4,9 @@ namespace mvcobjet\Models\Daos;
 
 use mvcobjet\Models\Entities\Director;
 
-class directorDao extends BaseDao
-{
+class directorDao extends BaseDao {
    
-    public function findAll(){
+    public function findAll() {
         $stmt = $this->db->prepare("SELECT * FROM director ");
         $res = $stmt->execute();
         if ($res) {
@@ -21,8 +20,7 @@ class directorDao extends BaseDao
         }
     }
 
-    public function createObjectFromFields($fields)
-    {
+    public function createObjectFromFields($fields) {
         $director = new director();
         $director->setId($fields['id'])
               ->setFirstName($fields['first_name']) 

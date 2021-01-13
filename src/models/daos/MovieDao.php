@@ -6,10 +6,9 @@ use mvcobjet\Models\Entities\Movie;
 
 use DateTime;
 
-class MovieDao extends BaseDao
-{
-    public function findById($id)
-    {
+class MovieDao extends BaseDao {
+
+    public function findById($id) {
         $stmt = $this->db->prepare("SELECT * FROM movie WHERE id = :id");
         $res = $stmt->execute([':id' => $id]);
 
@@ -20,8 +19,7 @@ class MovieDao extends BaseDao
         }
     }
 
-    public function createObjectFromFields($fields): Movie
-    {
+    public function createObjectFromFields($fields): Movie {
         $movie = new Movie();
         $movie->setId($fields['id'])
             ->setTitle($fields['title'])

@@ -11,23 +11,20 @@ use mvcobjet\Models\Entities\Director;
 use mvcobjet\Models\Entities\Genre;
 use mvcobjet\Models\Entities\Movie;
 
-class MovieService
-{
+class MovieService {
     private $movieDao;
     private $actorDao;
     private $genreDao;
     private $directorDao;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->movieDao = new MovieDao();
         $this->actorDao = new ActorDao();
         $this->directorDao = new DirectorDao();
         $this->genreDao = new GenreDao();
     }
 
-    public function getbyId($id)
-    {
+    public function getbyId($id) {
         $movie = $this->movieDao->findById($id);
         return $movie ;
 

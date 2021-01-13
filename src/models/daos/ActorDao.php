@@ -4,8 +4,7 @@ namespace mvcobjet\Models\Daos;
 
 use mvcobjet\Models\Entities\Actor;
 
-class ActorDao extends BaseDao
-{
+class ActorDao extends BaseDao {
    
     public function findAll(){
         $stmt = $this->db->prepare("SELECT * FROM actor ");
@@ -30,8 +29,5 @@ class ActorDao extends BaseDao
 
         return $acteur;
     }
-
-
-
 
 }

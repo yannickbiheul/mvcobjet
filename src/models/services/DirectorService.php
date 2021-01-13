@@ -5,17 +5,14 @@ namespace mvcobjet\Models\Services;
 use mvcobjet\Models\Daos\DirectorDao;
 use mvcobjet\Models\Entities\Director;
 
-class DirectorService
-{
+class DirectorService {
     private $directorDao;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->directorDao = new directorDao();
     }
 
-    public function getAlldirecteurs()
-    {
+    public function getAlldirecteurs() {
         $directeurs = $this->directorDao->findAll();
         return $directeurs;
     }
