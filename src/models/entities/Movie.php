@@ -12,9 +12,9 @@ class Movie {
     private $duration;
     private $date;
     private $coverImage;
-    private $genre;
-    private $director;
-    private $actors;
+    // private $genre;
+    // private $director;
+    // private $actors;
 
     /**
      * @return int
