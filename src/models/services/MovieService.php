@@ -38,8 +38,8 @@ class MovieService {
         $genre = $this->genreDao->findByMovie($id);
         $movie->setGenre($genre);
 
-        // $director = $this->directorDao->findByMovie($id);
-        // $movie->setDirector($director);
+        $director = $this->directorDao->findByMovie($id);
+        $movie->setDirector($director);
 
         // $comments = $this->commentDao->findByMovie($id);
 

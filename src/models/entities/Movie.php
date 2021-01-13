@@ -12,8 +12,8 @@ class Movie {
     private $duration;
     private $date;
     private $coverImage;
-    // private $genre;
-    // private $director;
+    private $genre;
+    private $director;
     // private $actors;
 
     /**
@@ -113,27 +113,23 @@ class Movie {
     }
 
     
-    public function getGenre(): Genre
-    {
+    public function getGenre(): Genre {
         return $this->genre;
     }
 
    
-    public function setGenre(Genre $genre): Movie
-    {
+    public function setGenre(Genre $genre): Movie {
         $this->genre = $genre;
         return $this;
     }
 
-/*   
-    public function getDirector(): Director
-    {
+  
+    public function getDirector(): Director {
         return $this->director;
     }
 
     
-    public function setDirector(Director $director): Movie
-    {
+    public function setDirector(Director $director): Movie {
         $this->director = $director;
         return $this;
     }

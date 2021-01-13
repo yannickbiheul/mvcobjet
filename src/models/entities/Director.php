@@ -31,7 +31,7 @@ class Director {
     }
 
     
-    public function getLastName(): string {
+    public function getLastName() {
         return $this->lastName;
     }
 
