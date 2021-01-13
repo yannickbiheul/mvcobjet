@@ -14,7 +14,7 @@ class Movie {
     private $coverImage;
     private $genre;
     private $director;
-    // private $actors;
+    private $actors;
 
     /**
      * @return int
@@ -133,21 +133,17 @@ class Movie {
         $this->director = $director;
         return $this;
     }
-/*
 
-    public function getActors()
-    {
+    public function getActors() {
         return $this->actors;
     }
 
-    public function setActors($actors): Movie
-    {
+    public function setActors($actors): Movie {
         $this->actors = $actors;
         return $this;
     }
 
-    public function addActor(Actor $actor): void
-    {
+    public function addActor(Actor $actor): void {
        
         foreach ($this->actors as $a) {
             if ($a->getId() == $actor->getId()) {
@@ -157,11 +153,10 @@ class Movie {
         $this->actors[] = $actor;
     }
 
-    public function deleteActor(Actor $actor): void
-    {
+    public function deleteActor(Actor $actor): void {
         $this->actors = array_filter($this->actors, function (Actor $a) use ($actor) {
             return $a->getId() != $actor->getId();
         });
     }
-*/
+
 }
