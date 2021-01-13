@@ -111,7 +111,7 @@ class Movie {
         $this->coverImage = $coverImage;
         return $this;
     }
-/*
+
     
     public function getGenre(): Genre
     {
@@ -125,7 +125,7 @@ class Movie {
         return $this;
     }
 
-   
+/*   
     public function getDirector(): Director
     {
         return $this->director;
@@ -137,6 +137,7 @@ class Movie {
         $this->director = $director;
         return $this;
     }
+/*
 
     public function getActors()
     {
