@@ -45,7 +45,8 @@ $route->respond('GET','/movie/[:id]', function($request) use($fc) {
    $fc->movie($request->id); 
 });
 
-$route->respond('POST', '/addmovie', function($request, $post) use($bc) {
+// $route->respond('GET', '/addmovie', function($request, $post) use($bc)
+$route->respond('GET', '/addmovie', function($request) use($bc) {
    $bc->addMovie($request->paramsPost());
 });
 

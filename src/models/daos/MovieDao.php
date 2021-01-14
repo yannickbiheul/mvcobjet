@@ -46,7 +46,7 @@ class MovieDao extends BaseDao {
             ':director_id' => $movie->getDirector()->getId()
         ]);
 
-        if ($res) {
+        if (!$res) {
             throw new \PDOException($stmt->errorInfo() [2]);
         }
     }
