@@ -20,6 +20,12 @@
     <img src="{{ movie.coverImage }}" width="300">
   </div>
 
+  <small>
+    {% for actor in movie.actors %}
+      {{ actor.firstname }}  {{ actor.lastname }} <br>
+    {% endfor %}
+  </small>
+
   <p>{{ movie.description }}</p>
 
 {% endblock %}

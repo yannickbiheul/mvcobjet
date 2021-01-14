@@ -30,10 +30,10 @@ class MovieService {
         // return $movie;
 
 
-        // $actors = $this->actorDao->findByMovie($id);
-        // foreach ($actors as $actor) {
-        //     $movie->addActor($actor);
-        // }
+        $actors = $this->actorDao->findByMovie($id);
+        foreach ($actors as $actor) {
+            $movie->addActor($actor);
+        }
         
         $genre = $this->genreDao->findByMovie($id);
         $movie->setGenre($genre);
@@ -41,15 +41,27 @@ class MovieService {
         $director = $this->directorDao->findByMovie($id);
         $movie->setDirector($director);
 
-        $actors = $this->actorDao->findByMovie($id);
-        foreach ($actors as $actor) {
-            $movie->addActor($actor);
-        }
+        // $actors = $this->actorDao->findByMovie($id);
+        // foreach ($actors as $actor) {
+        //     $movie->addActor($actor);
+        // }
 
         // $comments = $this->commentDao->findByMovie($id);
 
         return $movie;
     
+    }
+
+    public function create($movieData) {
+        $movie = $this->movieDao->createObjectFromFields($movieData);
+
+        $genre = $this->genreDao->findById($movieData['genre']);
+        $movie->setGenre($genre);
+
+        $director = $this->directorDao->findById($movieData['director']);
+        $movie->setDirector($director);
+
+        $this->movieDao->create($movie);
     }
 }
 

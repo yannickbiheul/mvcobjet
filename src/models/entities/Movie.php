@@ -145,18 +145,21 @@ class Movie {
 
     public function addActor(Actor $actor): void {
        
-        foreach ($this->actors as $a) {
-            if ($a->getId() == $actor->getId()) {
-                return;
+        if (is_array($this->actors)) {
+            foreach ($this->actors as $a) {
+                if ($a->getId() == $actor->getId()) {
+                    return;
+                }
             }
         }
+        
         $this->actors[] = $actor;
     }
 
-    public function deleteActor(Actor $actor): void {
-        $this->actors = array_filter($this->actors, function (Actor $a) use ($actor) {
-            return $a->getId() != $actor->getId();
-        });
-    }
+    // public function deleteActor(Actor $actor): void {
+    //     $this->actors = array_filter($this->actors, function (Actor $a) use ($actor) {
+    //         return $a->getId() != $actor->getId();
+    //     });
+    // }
 
 }

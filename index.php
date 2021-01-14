@@ -5,6 +5,7 @@ require_once "vendor/autoload.php";
 
 // Ici c'est pour pouvoir utiliser les fonctions de FrontController
 use mvcobjet\controllers\FrontController; 
+use mvcobjet\controllers\BackController; 
 
 // Ça c'est les trucs de Twig
 use Twig\Environment;
@@ -15,6 +16,7 @@ $twig = new Environment($loader, ['cache' => false,'debug' => true]);
 
 // $fc est un objet de la classe frontController
 $fc = new FrontController($twig);
+$bc = new BackController();
 
 // $_SERVER[PHP_SELF] : Le nom du fichier du script en cours d'exécution, par rapport à la racine web.
 $base = dirname($_SERVER['PHP_SELF']);
@@ -41,6 +43,10 @@ $route->respond('GET','/realisateurs', function() use($fc) {
 
 $route->respond('GET','/movie/[:id]', function($request) use($fc) {
    $fc->movie($request->id); 
+});
+
+$route->respond('POST', '/addmovie', function($request, $post) use($bc) {
+   $bc->addMovie($request->paramsPost());
 });
 
 $route->dispatch(); 
