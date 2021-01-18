@@ -9,6 +9,12 @@ use mvcobjet\Models\Services\MovieService;
 
 use Twig\Environment;
 
+function debug($variable) {
+    echo '<pre>';
+    print_r($variable);
+    echo '</pre>';
+}
+
 class FrontController {
     private $genreService ;
     private $actorService ;
@@ -39,7 +45,12 @@ class FrontController {
 
     public function realisateurs() {
        $reals = $this->directorService->getAlldirecteurs();
-       echo $this->twig->render('directors.html.twig', ["reals" => $reals]);   
+       echo $this->twig->render('directors.html.twig', ["reals" => $reals]);  
+    }
+
+    public function films() {
+        $films = $this->movieService->getAllFilms();
+        echo $this->twig->render('films.html.twig', ["films" => $films]); 
     }
 
     public function genre($id) {
@@ -56,4 +67,10 @@ class FrontController {
         $movie = $this->movieService->create($post);
         echo $this->twig>render('addMovie.html.twig', ["movie" => $movie]);
     }
+
+    public function accueil() {
+        $films = $this->movieService->getAllFilms();
+        echo $this->twig->render('accueil.html.twig', ["films" => $films]); 
+    }
+    
 }

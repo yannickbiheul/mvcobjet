@@ -6,6 +6,12 @@ use mvcobjet\Models\Entities\Movie;
 
 use DateTime;
 
+function debug($variable) {
+    echo '<pre>';
+    print_r($variable);
+    echo '</pre>';
+}
+
 class MovieDao extends BaseDao {
 
     public function findById($id) {
@@ -14,6 +20,20 @@ class MovieDao extends BaseDao {
 
         if ($res) {
             return $this->createObjectFromFields($stmt->fetch(\PDO::FETCH_ASSOC));
+        } else {
+            throw new \PDOException($stmt->errorInfo()[2]);
+        }
+    }
+
+    public function findAll() {
+        $stmt = $this->db->prepare("SELECT * FROM movie ");
+        $res = $stmt->execute();
+        if ($res) {
+            $films = [];
+            while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+                $films[] = $this->createObjectFromFields($row);
+            }
+            return $films;
         } else {
             throw new \PDOException($stmt->errorInfo()[2]);
         }

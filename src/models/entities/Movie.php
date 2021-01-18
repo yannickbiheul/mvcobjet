@@ -124,7 +124,7 @@ class Movie {
     }
 
   
-    public function getDirector(): Director {
+    public function getDirector() {
         return $this->director;
     }
 

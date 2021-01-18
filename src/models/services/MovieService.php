@@ -63,5 +63,10 @@ class MovieService {
 
         $this->movieDao->create($movie);
     }
+
+    public function getAllFilms() {
+        $films = $this->movieDao->findAll();
+        return $films;
+    }
 }
 
