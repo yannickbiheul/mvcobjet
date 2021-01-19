@@ -2,7 +2,7 @@
 <html>
 <head>
   {% block head %}
-    <title>MonSite - {% block title %}{% endblock %}</title>
+    <title>CinéSite - {% block title %}{% endblock %}</title>
   {% endblock %}
   
 </head>
@@ -57,7 +57,7 @@
   }
   
   #content {
-    width: 50%;
+    width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -104,6 +104,40 @@
   .lien:hover {
     background-color: #fff;
     color: #000;
+  }
+
+  form {
+    width: 50%;
+    min-height: 500px;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*border: 1px solid #000;*/
+  }
+
+  form>input {
+    min-width: 280px;
+    max-width: 500px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 4px #ccc;
+    padding: 5px;
+  }
+
+  form>select {
+    min-width: 280px;
+    max-width: 500px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 4px #ccc;
+    padding: 5px;
   }
 
 </style>

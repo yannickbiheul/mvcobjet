@@ -16,7 +16,7 @@ $twig = new Environment($loader, ['cache' => false,'debug' => true]);
 
 // $fc est un objet de la classe frontController
 $fc = new FrontController($twig);
-$bc = new BackController();
+$bc = new BackController($twig);
 
 // $_SERVER[PHP_SELF] : Le nom du fichier du script en cours d'exécution, par rapport à la racine web.
 $base = dirname($_SERVER['PHP_SELF']);
@@ -61,10 +61,17 @@ $route->respond('GET', '/movies', function() use($fc) {
 
                /* ----- FORMULAIRE FILM ----- */
 
-// $route->respond('GET', '/addmovie', function($request, $post) use($bc)
 $route->respond('GET', '/formFilm', function() use($fc) {
    $fc->formFilm();
 });
+
+               /* ----- AJOUTER UN FILM ----- */
+
+$route->respond('POST', '/addMovie', function($request, $post) use($bc) {
+   $bc->addMovie($request->paramsPost());
+});
+
+               /* ----- ACCUEIL ----- */
 
 $route->respond('GET', '/', function() use($fc) {
    $fc->accueil();

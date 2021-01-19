@@ -33,7 +33,6 @@ class FrontController {
     }
 
     public function genres() {
-        
        $genres = $this->genreService->getAllGenres();    
        echo $this->twig->render('genres.html.twig', [ "genres" => $genres ] );
     }
@@ -65,6 +64,10 @@ class FrontController {
 
     public function accueil() {
         echo $this->twig->render('accueil.html.twig'); 
+    }
+
+    public function formFilm() {
+        echo $this->twig->render('formFilm.html.twig');
     }
     
 }

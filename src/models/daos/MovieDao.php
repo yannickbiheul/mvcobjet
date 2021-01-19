@@ -26,7 +26,7 @@ class MovieDao extends BaseDao {
     }
 
     public function findAll() {
-        $stmt = $this->db->prepare("SELECT * FROM movie ");
+        $stmt = $this->db->prepare("SELECT * FROM movie ORDER BY title ASC");
         $res = $stmt->execute();
         if ($res) {
             $films = [];
@@ -52,7 +52,7 @@ class MovieDao extends BaseDao {
     }
 
     public function create(Movie $movie) {
-        $stmt = $this->db>prepare("
+        $stmt = $this->db->prepare("
         INSERT INTO movie(title, description, duration, date, cover_image, genre_id, director_id)
         VALUES(:title, :description, :duration, :date, :cover_image, :genre_id, :director_id)");
 
@@ -65,6 +65,16 @@ class MovieDao extends BaseDao {
             ':genre_id' => $movie->getGenre()->getId(),
             ':director_id' => $movie->getDirector()->getId()
         ]);
+
+        if (!$res) {
+            throw new \PDOException($stmt->errorInfo() [2]);
+        }
+    }
+
+    public function addMovie($title, $image) {
+        $stmt = $this->db->prepare("INSERT INTO movie(title, cover_image) VALUES(?, ?)");
+
+        $res = $stmt->execute([$title, $image]);
 
         if (!$res) {
             throw new \PDOException($stmt->errorInfo() [2]);
