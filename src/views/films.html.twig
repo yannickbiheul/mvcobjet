@@ -1,24 +1,21 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Films{% endblock %}
-
-{% block head %}
-
-{% endblock %}
+{% block title %} Films{% endblock %}
+  
 
 
 {% block content %}
-<div class="films">
- {% for film in films %}
- <div class="film">
-    {{ film.title }} &nbsp;
-    <div>
-        <img src="{{ film.coverImage }}" height="400">
-    </div>
+    <div class="films">
+    {% for film in films %}
+    <div class="film">
+        <h3>{{ film.title }}</h3> 
+        <div>
+            <img src="{{ film.coverImage }}" height="400">
+        </div>
 
-    <a href="http://localhost:8090/mvcobjet/movie/{{ film.id }}" class="lien">Voir</a>
-</div>
-{% endfor %}
+        <a href="http://localhost:8090/mvcobjet/movie/{{ film.id }}" class="lien">Voir</a>
+    </div>
+    {% endfor %}
    </div>
 {% endblock %}
 

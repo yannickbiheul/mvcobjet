@@ -29,10 +29,6 @@ if(ltrim($base, '/')){
 
 $route = new \Klein\Klein();
 
-$route->respond(function() use($fc) {
-   $fc->accueil();
-});
-
                /* ----- AFFICHER LES GENRES ----- */
 
 $route->respond('GET','/genres', function() use($fc) {
@@ -63,11 +59,15 @@ $route->respond('GET', '/movies', function() use($fc) {
    $fc->films();
 });
 
-               /* ----- AJOUTER UN FILM ----- */
+               /* ----- FORMULAIRE FILM ----- */
 
 // $route->respond('GET', '/addmovie', function($request, $post) use($bc)
-$route->respond('GET', '/addmovie', function($request) use($bc) {
-   $bc->addMovie($request->paramsPost());
+$route->respond('GET', '/formFilm', function() use($fc) {
+   $fc->formFilm();
+});
+
+$route->respond('GET', '/', function() use($fc) {
+   $fc->accueil();
 });
 
 $route->dispatch(); 

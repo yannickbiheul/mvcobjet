@@ -63,14 +63,8 @@ class FrontController {
         echo $this->twig->render('movie.html.twig', ["movie" => $movie ]);   
     }
 
-    public function addMovie($post) {
-        $movie = $this->movieService->create($post);
-        echo $this->twig>render('addMovie.html.twig', ["movie" => $movie]);
-    }
-
     public function accueil() {
-        $films = $this->movieService->getAllFilms();
-        echo $this->twig->render('accueil.html.twig', ["films" => $films]); 
+        echo $this->twig->render('accueil.html.twig'); 
     }
     
 }
